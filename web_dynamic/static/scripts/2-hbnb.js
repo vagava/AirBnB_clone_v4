@@ -1,4 +1,3 @@
-
 $(document).ready(() => {
     let listAmenities= {}
     $("input:checkbox").click(function() {
@@ -9,4 +8,11 @@ $(document).ready(() => {
         }
         $('.amenities h4').text(Object.keys(listAmenities))
     })
+})
+$.getJSON("http://0.0.0.0:5001/api/v1/status/", function (json){
+   if (json.status == "OK") {
+        $("div#api_status").addClass("available")
+   }else{
+        $("div#api_status").removeClass("available")
+   }
 })
